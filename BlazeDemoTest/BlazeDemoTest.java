@@ -14,9 +14,9 @@ public class BlazeDemoTest {
 	
 	@Before
 	public void setUp() throws Exception {
-//		System.setProperty("webdriver.chrome.driver","/Users/himanshumehta/Desktop/chromedriver");
-//		WebDriver driver = new ChromeDriver();
-//		driver.get("http://blazedemo.com/");
+		System.setProperty("webdriver.chrome.driver","/Users/himanshumehta/Desktop/chromedriver");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://blazedemo.com/");
 	}
 
 	@After
@@ -27,9 +27,6 @@ public class BlazeDemoTest {
 
 	@Test
 	public void test() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver","/Users/himanshumehta/Desktop/chromedriver");
-		WebDriver driver = new ChromeDriver();
-		driver.get("http://blazedemo.com/");
 
 		WebElement DepartCity = driver.findElement(By.name("fromPort"));
 		String DepartCityData = DepartCity.getText();
@@ -42,14 +39,25 @@ public class BlazeDemoTest {
 	
 	@Test
 	public void test2() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver","/Users/himanshumehta/Desktop/chromedriver");
-		WebDriver driver = new ChromeDriver();
-		driver.get("http://blazedemo.com/");
-		WebElement Flight = driver.findElement(By.name("VA12"));
-		String FlightData = Flight.getText();
-		System.out.println(FlightData);
-		Thread.sleep(1000);
-		driver.close();
+//		
+		WebElement FindFlight = driver.findElement(By.className("container"));
+		FindFlight.click();
+
 	}
+	
+	@Test
+	public void test3() throws InterruptedException {
+		WebElement FName = driver.findElement(By.id("inputName"));
+		FName.sendKeys("himanshu");
+		WebElement Address = driver.findElement(By.id("address"));
+		Address.sendKeys("165");
+		WebElement City = driver.findElement(By.id("city"));
+		City.sendKeys("scarbrough");
+		WebElement State = driver.findElement(By.id("state"));
+		State.sendKeys("Ontario");
+	
+	}
+	
+	
 
 }
